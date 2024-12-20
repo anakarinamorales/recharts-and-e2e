@@ -1,0 +1,40 @@
+.formContainer {
+  display: grid;
+  grid-template-areas:
+    'title title title title'
+    'kwhLabel . datetimeLabel .'
+    'kwhInput . datetimeInput nowBtn'
+    '. . . submitBtn';
+    grid-column-gap: 8px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.kwhInput {
+  grid-area: kwhInput;
+}
+
+.kwhLabel {
+  grid-area: kwhLabel;
+}
+
+.datetimeLabel {
+  grid-area: datetimeLabel;
+}
+
+.datetimeInput {
+  grid-area: datetimeInput;
+}
+
+.nowBtn {
+  grid-area: nowBtn;
+}
+
+.submitBtn {
+  grid-area: submitBtn;
+  margin-top: 14px;
+}
+
+
