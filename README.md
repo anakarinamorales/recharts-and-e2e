@@ -38,12 +38,10 @@ npm run cypress:open
 - [react-hook-form](https://www.react-hook-form.com/): performant, flexible and extensible forms with easy-to-use validation.
 
 ## TODO
-- Have modal component to be an extention of the dialog DOM element, so I can reuse their methods (show, open, close);
-- Hydrate a context with the meters so I can re-use it across the pages without having to fetch for data again;
-- Move MeterIntervalForm items to a sepparate component, to improve redability on the parent component;
+- Move MeterIntervalForm items to a sepparate component, to improve readability on the parent component;
 - Setup MSW to test API response without hitting the API intself;
 - Show a combined chart with the data from all batteries in the homepage;
-
+- Improve data fetch after insertion. Could fetch only new entries based on id/date depending on the structure of the data (avoid refetching all the data again after post request).
 
 ### Notes
 

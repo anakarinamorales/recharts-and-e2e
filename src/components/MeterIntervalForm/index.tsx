@@ -63,7 +63,7 @@ export default function MeterIntervalForm({
     // input type="datetime-local" expects "yyyy-MM-ddTHH:mm:ss"
     setValue(
       'datetime',
-      tzDate.replace(' ', () => 'T')
+      tzDate.replace(' ', 'T')
     );
   }
 
