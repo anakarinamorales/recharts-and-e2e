@@ -1,44 +1,35 @@
-'use client';
-import { Chart } from 'react-google-charts';
-import { useMemo } from 'react';
-
-import type { ChartData } from '@/components/Chart/Chart.types';
 import type { MeterInterval, Meter } from '@/pages/api/metersData';
+import {
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+  ResponsiveContainer,
+} from 'recharts';
 
 export default function SingleMeterChart({ meter }: { meter: Meter | null }) {
-  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-  const chartData = useMemo(() => {
-    let chart = [['time', 'kvh']] as ChartData;
-
-    meter?.intervals.forEach((item: MeterInterval) => {
-      const kwh = item.kwh;
-      const time = new Date(item.timestamp).toLocaleString();
-      const newChartItem = [time, kwh];
-      chart = [...chart, newChartItem] as ChartData;
-    });
-
-    return chart;
-  }, [meter]);
-
-  const chartOptions = {
-    vAxis: {
-      title: 'kwh',
-    },
-    hAxis: {
-      title: `Date & Time | ${timezone}`,
-    },
-  };
+  const sortedArray = meter?.intervals
+    ?.sort((interval1, interval2) => interval1.timestamp - interval2.timestamp)
+    .map((item: MeterInterval) => ({
+      date: new Date(item.timestamp).toLocaleString(),
+      kwh: item.kwh,
+    }));
 
   return (
     <>
-      <Chart
-        chartType='ColumnChart'
-        data={chartData}
-        height='100%'
-        options={chartOptions}
-        width='100%'
-      />
+      <ResponsiveContainer width='100%'>
+        <BarChart  data={sortedArray} barSize={20}>
+          <XAxis dataKey='date' />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <CartesianGrid strokeDasharray='3 3' />
+          <Bar dataKey='kwh' fill='#8884d8' background={{ fill: '#eee' }} />
+        </BarChart>
+      </ResponsiveContainer>
     </>
   );
 }

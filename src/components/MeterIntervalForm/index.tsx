@@ -93,7 +93,7 @@ export default function MeterIntervalForm({
           autoFocus
           className={styles.kwhInput}
           type='number'
-          {...register(FORM_INPUTS.KWH, { required: true })}
+          {...register(FORM_INPUTS.KWH, { required: "Consumption cannot be empty" })}
         />
         <label className={styles.datetimeLabel} htmlFor={FORM_INPUTS.DATETIME}>
           Date
@@ -104,7 +104,7 @@ export default function MeterIntervalForm({
           min='1970-01-01'
           step='1'
           type='datetime-local'
-          {...register(FORM_INPUTS.DATETIME)}
+          {...register(FORM_INPUTS.DATETIME, { required: "Date cannot be empty" })}
         />
         <Button className={styles.nowBtn} onClick={setDateToNow} type='button'>
           Now

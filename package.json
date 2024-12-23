@@ -15,15 +15,15 @@
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-google-charts": "^5.2.1",
     "react-hook-form": "^7.54.1",
+    "recharts": "^2.15.0",
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "^9",
     "eslint-config-next": "15.1.0",

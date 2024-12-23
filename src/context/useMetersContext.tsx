@@ -8,19 +8,25 @@ export type MetersContextProps = {
   setMeterDataWasUpdated: Dispatch<SetStateAction<boolean>>;
 };
 
-export const defaultMeters: MetersContextProps = {
+export const defaultMetersContextProps: MetersContextProps = {
   meters: [],
   queryError: null,
   setMeters: ([]) => null,
   setMeterDataWasUpdated: () => false,
 };
 
-export const MetersContext = createContext(defaultMeters);
+export const MetersContext = createContext(defaultMetersContextProps);
 
 MetersContext.displayName = 'MetersContext';
 
 export function useMetersContext() {
-  return useContext(MetersContext);
+  const context = useContext(MetersContext);
+
+  if (!context) {
+    throw new Error('useMetersContext should be used within a MetersProvider');
+  }
+  
+  return context;
 }
 
 export function MetersProvider({
@@ -37,7 +43,7 @@ export function MetersProvider({
   useEffect(() => {
     const fetchMeterData = async () => {
       try {
-        const res = await fetch('http://localhost:3001/meters', {
+        const res = await fetch(`${process.env.SERVER_BASE_URL}`, {
           method: 'GET',
         });
 

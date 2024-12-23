@@ -16,7 +16,7 @@ export function toggleDialog(dialogRef: RefObject<HTMLDialogElement | null>) {
     dialogRef.current.close();
     return;
   }
-  
+
   dialogRef.current.showModal();
 }
 

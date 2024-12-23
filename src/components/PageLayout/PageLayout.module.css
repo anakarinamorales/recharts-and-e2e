@@ -1,5 +1,10 @@
 .Container {
   flex: 1;
-  height: 100vh;
+  height: 100%;
   padding: 0 24px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  max-width: 90%;
 }
