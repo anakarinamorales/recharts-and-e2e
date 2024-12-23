@@ -2,40 +2,51 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+Intall the dependencies & be sure to have the API server open.
+
+```bash
+npm i
+```
+
+Then, run the development server(after running the API server in another terminal):
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tests
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Currently there's only E2E tests with Cypress. It's recommended to run the built code for testing.
 
-## Learn More
+In a terminal, run the build script:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build && npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Without closing the previous terminal, open a new terminal, navigate to the root of the project and run the test script:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run cypress:open
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-# CHOICES
 
 ## Packages
-- Recharts: lightweight chart package that's beign used on the market. Has constant updates. Create simple and customizable charts quickly with a focus on ease of use. Responsive.
+- [recharts](https://recharts.org/en-US/): lightweight chart package that's beign used on the market. Has constant updates. Create simple and customizable charts quickly with a focus on ease of use. Responsive.
+- [react-hook-form](https://www.react-hook-form.com/): performant, flexible and extensible forms with easy-to-use validation.
+
+## TODO
+- Have modal component to be an extention of the dialog DOM element, so I can reuse their methods (show, open, close);
+- Hydrate a context with the meters so I can re-use it across the pages without having to fetch for data again;
+- Move MeterIntervalForm items to a sepparate component, to improve redability on the parent component;
+- Setup MSW to test API response without hitting the API intself;
+- Show a combined chart with the data from all batteries in the homepage;
+
+
+### Notes
+
+Why E2E
+- Validating critical workflows like authentication and purchasing
+- Ensuring data is persisted and displayed through multiple screens

@@ -1,9 +1,11 @@
-import { Meter } from '@/pages/api/metersData';
+import { getMeters, Meter } from '@/pages/api/metersData';
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+
+type ErrorMessage = {message?: string}
 
 export type MetersContextProps = {
   meters: Meter[] | null;
-  queryError?: ErrorConstructor | null;
+  queryError?: ErrorMessage | null;
   setMeters: (meters: Meter[]) => void;
   setMeterDataWasUpdated: Dispatch<SetStateAction<boolean>>;
 };
@@ -35,28 +37,17 @@ export function MetersProvider({
   children: React.ReactNode;
 }): React.ReactNode {
   const [metersData, setMetersData] = useState<Meter[] | null>(() => null);
-  const [queryError, setQueryError] = useState<
-    ErrorConstructor | null
-    >(() => null);
+  const [queryError, setQueryError] = useState<{message?: string}>();
   const [meterDataWasUpdated, setMeterDataWasUpdated] = useState<boolean>(() => false);
   
   useEffect(() => {
     const fetchMeterData = async () => {
       try {
-        const res = await fetch(`${process.env.SERVER_BASE_URL}`, {
-          method: 'GET',
-        });
-
-        const data = await res.json();
-
-        if (res.status === 404) {
-          throw new Error(data.message);
-        }
-
+        const data = await getMeters();
         setMetersData(data);
       } catch (error) {
         console.error(error);
-        setQueryError(error as ErrorConstructor);
+        setQueryError(new Error('Something went wrong while loading meters data :('));
       }
     };
     if (meterDataWasUpdated || !metersData) {
@@ -74,7 +65,8 @@ export function MetersProvider({
 
   return (
     <MetersContext.Provider value={contextProps}>
-      {children}
+      {!queryError && children}
+      {queryError && <p>Oops! {queryError.message} </p>}
     </MetersContext.Provider>
   );
 }

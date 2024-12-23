@@ -31,10 +31,7 @@ export default function MeterData() {
           Oops! We are currently unable to find the meter you requested.
         </span>
       ) : (
-        <>
-          <h2>{meter?.name}</h2>
-          <SingleMeterChart meter={meter} />
-        </>
+        <SingleMeterChart meter={meter} />
       )}
     </PageLayout>
   );

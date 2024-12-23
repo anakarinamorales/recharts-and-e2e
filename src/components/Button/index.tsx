@@ -2,14 +2,14 @@ import styles from './Button.module.css';
 
 export default function Button({
   children,
-  type,
-  onClick,
   className,
   disabled,
+  onClick,
+  type,
 }: {
+  children: React.ReactNode;
   className?: string;
   disabled?: boolean;
-  children: React.ReactNode;
   onClick?: () => void;
   type: 'submit' | 'button';
 }) {

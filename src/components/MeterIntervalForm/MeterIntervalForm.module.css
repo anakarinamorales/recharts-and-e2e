@@ -1,11 +1,12 @@
 .formContainer {
   display: grid;
+  grid-column-gap: 8px;
   grid-template-areas:
     'title title title title'
     'kwhLabel . datetimeLabel .'
     'kwhInput . datetimeInput nowBtn'
     '. . . submitBtn';
-    grid-column-gap: 8px;
+  
 }
 
 .title {

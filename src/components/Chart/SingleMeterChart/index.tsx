@@ -1,14 +1,14 @@
-import type { MeterInterval, Meter } from '@/pages/api/metersData';
 import {
+  Bar,
   BarChart,
   CartesianGrid,
+  Legend,
+  ResponsiveContainer,
+  Tooltip,
   XAxis,
   YAxis,
-  Tooltip,
-  Legend,
-  Bar,
-  ResponsiveContainer,
 } from 'recharts';
+import type { MeterInterval, Meter } from '@/pages/api/metersData';
 
 export default function SingleMeterChart({ meter }: { meter: Meter | null }) {
   const sortedArray = meter?.intervals
@@ -20,8 +20,9 @@ export default function SingleMeterChart({ meter }: { meter: Meter | null }) {
 
   return (
     <>
+      {meter?.name && <h2>{meter?.name}</h2>}
       <ResponsiveContainer width='100%'>
-        <BarChart  data={sortedArray} barSize={20}>
+        <BarChart data={sortedArray} barSize={20}>
           <XAxis dataKey='date' />
           <YAxis />
           <Tooltip />

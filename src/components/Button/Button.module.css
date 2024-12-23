@@ -1,22 +1,22 @@
 .btn {
-  background-color: #fff;
+  background-color: var(--color-pure-white);
   border-radius: 8px;
-  border: 2px solid #000;
+  border: 2px solid var(--color-pure-black);
   cursor: pointer;
   padding: 4px 8px;
 }
 
 .btn:hover {
-    color: #000;
-  background-color: #dcdcdc;
+    color: var(--color-pure-black);
+  background-color: var(--color-light-grey);
 }
 
 .btn[type='submit'] {
-    background-color: #000;
-    color: #dcdcdc;
+    background-color: var(--color-pure-black);
+    color: var(--color-light-grey);
 }
 
 .btn[type='submit']:hover {
-    background-color: #dcdcdc;
-    color: #000;
+    background-color: var(--color-light-grey);
+    color: var(--color-pure-black);
 }

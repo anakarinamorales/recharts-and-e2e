@@ -1,31 +1,12 @@
 .menuContainer {
-  background: #242020;
+  background: var(--color-light-black);
   border-radius: 0 0 80px 80px;
-  /* flex: 0 0 180px;
-  height: 100%; */
-  padding-bottom: 24px;
-  /* position: relative; */
-  position: absolute;
-  width: 170px;
   height: 170px;
   left: 0;
-}
-
-/* Burger menu icon */
-/* .menuContainer::before {
-  background: #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 7px 0px 0px #ccc, 0px -7px 0px 0px #ccc;
-  content: '';
-  display: block;
-  height: 4px;
-  left: 10px;
+  padding-bottom: 24px;
   position: absolute;
-  top: 20px;
-  transition: 0.5s;
-  width: 24px;
-} */
-
+  width: 170px;
+}
 .navigationList {
   list-style: none;
   margin: 0;
@@ -41,7 +22,7 @@
 
 .menuItem > a {
   align-items: center;
-  color: #ccc;
+  color: var(--color-medium-grey);
   display: block;
   display: flex;
   height: 100%;
@@ -49,13 +30,13 @@
 }
 
 .menuItem > a:hover {
-  color: #242020;
+  color: var(--color-light-black);
 }
 
 .menuItem:hover {
-  background-color: #ccc;
-  background: white;
+  background-color: var(--color-medium-grey);
+  background: var(--color-pure-white);
   border-radius: 35px 0 0 35px;
-  color: #242020;
+  color: var(--color-light-black);
   cursor: pointer;
 }

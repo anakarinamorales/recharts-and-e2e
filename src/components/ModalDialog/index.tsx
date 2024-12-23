@@ -1,6 +1,8 @@
-import CloseButton from './CloseButton';
-import styles from './Modal.module.css';
 import { forwardRef, RefObject } from 'react';
+
+import CloseButton from '@/components/ModalDialog/CloseButton';
+
+import styles from '@/components/ModalDialog/Modal.module.css';
 
 type CustomDialogProps = {
   children: React.ReactNode;
@@ -20,7 +22,6 @@ export function toggleDialog(dialogRef: RefObject<HTMLDialogElement | null>) {
   dialogRef.current.showModal();
 }
 
-// eslint-disable-next-line react/display-name
 const Dialog = forwardRef<HTMLDialogElement, CustomDialogProps>(
   ({ children, toggleDialog }, ref) => {
     return (
@@ -40,5 +41,7 @@ const Dialog = forwardRef<HTMLDialogElement, CustomDialogProps>(
     );
   }
 );
+
+Dialog.displayName = 'CustomDialog';
 
 export default Dialog;

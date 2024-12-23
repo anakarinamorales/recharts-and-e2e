@@ -12,5 +12,5 @@
 
 .container:focus,
 .container:hover {
-  border-color: #000;
+  border-color: var(--color-pure-black);
 }
