@@ -1,6 +1,6 @@
 # Introduction
 
-I have been invited to complete this coding assignment. They deliberately keept the assignment vague, leaving much room for me to make choices. I documented my design choices.
+This is a coding assignment. They deliberately keept the assignment vague, leaving much room for me to make choices. I documented my design choices.
 
 They provided me with a simple server application that exposed two endpoints. One to fetch meter interval data, and another to submit a new entry.
 
