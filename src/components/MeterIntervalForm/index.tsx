@@ -8,9 +8,14 @@ import { useMetersContext } from '@/context/useMetersContext';
 import Button from '@/components/Button';
 import Dialog, { toggleDialog } from '@/components/ModalDialog';
 
-import { FORM_INPUTS, MeterIntervalFormInputs, Notification } from './types';
+import type { MeterIntervalFormInputs, Notification } from './types';
 
 import styles from '@/components/MeterIntervalForm/MeterIntervalForm.module.css';
+
+export enum FORM_INPUTS {
+  DATETIME = 'datetime',
+  KWH = 'kwh',
+}
 
 export default function MeterIntervalForm({
   dialogRef,
@@ -61,10 +66,7 @@ export default function MeterIntervalForm({
     const tzDate = getTzDate(new Date());
 
     // input type="datetime-local" expects "yyyy-MM-ddTHH:mm:ss"
-    setValue(
-      'datetime',
-      tzDate.replace(' ', 'T')
-    );
+    setValue('datetime', tzDate.replace(' ', 'T'));
   }
 
   return (

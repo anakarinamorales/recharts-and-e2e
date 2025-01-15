@@ -1,19 +1,19 @@
 :root {
   --color-light-black: #242020;
   --color-light-grey: #dcdcdc;
+  --color-lilac: #8884d8; 
   --color-medium-grey: #cccccc;
   --color-pure-black: #000000;
   --color-pure-white: #ffffff;
-  --color-lilac: #8884d8; 
   --color-yellow: #ffc658;
 }
 
 html,
 body {
-  font-smooth: antialiased;
   color: var(--color-pure-black);
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-smooth: antialiased;
   height: 100vh;
   margin: 0;
 }

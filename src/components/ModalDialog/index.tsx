@@ -2,7 +2,7 @@ import { forwardRef, RefObject } from 'react';
 
 import CloseButton from '@/components/ModalDialog/CloseButton';
 
-import styles from '@/components/ModalDialog/Modal.module.css';
+import styles from './Modal.module.css';
 
 type CustomDialogProps = {
   children: React.ReactNode;

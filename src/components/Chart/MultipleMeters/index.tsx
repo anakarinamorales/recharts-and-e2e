@@ -1,9 +1,3 @@
-import { getChartData } from '@/utils';
-import { Meter } from '@/pages/api/metersData';
-import { useMetersContext } from '@/context/useMetersContext';
-
-import styles from '@/components/Chart/Chart.module.css';
-
 import {
   Bar,
   BarChart,
@@ -14,6 +8,13 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
+
+import { getChartData } from '@/utils';
+import { useMetersContext } from '@/context/useMetersContext';
+
+import styles from '@/components/Chart/Chart.module.css';
+
+import type { Meter } from '@/pages/api/metersData';
 
 export default function MultipleMeters() {
   const { meters } = useMetersContext();

@@ -8,9 +8,10 @@ import {
   XAxis,
   YAxis,
 } from 'recharts';
-import type { MeterInterval, Meter } from '@/pages/api/metersData';
 
 import styles from '@/components/Chart/Chart.module.css';
+
+import type { MeterInterval, Meter } from '@/pages/api/metersData';
 
 export default function SingleMeterChart({ meter }: { meter: Meter | null }) {
   const sortedArray = meter?.intervals

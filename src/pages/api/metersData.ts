@@ -13,7 +13,7 @@ export const updateMeterData = async (
   meterId: string | number
 ) => {
   if (meterId) {
-    const res = await fetch(`http://localhost:3001/meters/${meterId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${meterId}`, {
       method: 'POST',
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -33,7 +33,7 @@ export const updateMeterData = async (
 };
 
 export const getMeters = async () => {
-  const res = await fetch(`http://localhost:3001/meters`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/`, {
     method: 'GET',
   });
 
@@ -42,6 +42,6 @@ export const getMeters = async () => {
   if (res.status === 404) {
     throw new Error(data.message);
   }
-  
+
   return data;
 };

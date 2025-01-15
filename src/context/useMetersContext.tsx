@@ -1,20 +1,14 @@
+import { createContext, useContext, useEffect, useState } from 'react';
+
 import { getMeters, Meter } from '@/pages/api/metersData';
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 
-type ErrorMessage = {message?: string}
-
-export type MetersContextProps = {
-  meters: Meter[] | null;
-  queryError?: ErrorMessage | null;
-  setMeters: (meters: Meter[]) => void;
-  setMeterDataWasUpdated: Dispatch<SetStateAction<boolean>>;
-};
+import type { MetersContextProps, ProviderProps } from './types';
 
 export const defaultMetersContextProps: MetersContextProps = {
   meters: [],
   queryError: null,
-  setMeters: ([]) => null,
   setMeterDataWasUpdated: () => false,
+  setMeters: ([]) => null,
 };
 
 export const MetersContext = createContext(defaultMetersContextProps);
@@ -27,19 +21,17 @@ export function useMetersContext() {
   if (!context) {
     throw new Error('useMetersContext should be used within a MetersProvider');
   }
-  
+
   return context;
 }
 
-export function MetersProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}): React.ReactNode {
+export function MetersProvider({ children }: ProviderProps): React.ReactNode {
+  const [meterDataWasUpdated, setMeterDataWasUpdated] = useState<boolean>(
+    () => false
+  );
   const [metersData, setMetersData] = useState<Meter[] | null>(() => null);
-  const [queryError, setQueryError] = useState<{message?: string}>();
-  const [meterDataWasUpdated, setMeterDataWasUpdated] = useState<boolean>(() => false);
-  
+  const [queryError, setQueryError] = useState<{ message?: string }>();
+
   useEffect(() => {
     const fetchMeterData = async () => {
       try {
@@ -47,7 +39,9 @@ export function MetersProvider({
         setMetersData(data);
       } catch (error) {
         console.error(error);
-        setQueryError(new Error('Something went wrong while loading meters data :('));
+        setQueryError(
+          new Error('Something went wrong while loading meters data :(')
+        );
       }
     };
     if (meterDataWasUpdated || !metersData) {

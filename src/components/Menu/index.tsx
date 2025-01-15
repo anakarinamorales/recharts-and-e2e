@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import { useMetersContext } from '@/context/useMetersContext';
 
 import styles from './Menu.module.css';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 
 export default function Menu() {
   const { meters, queryError } = useMetersContext();
