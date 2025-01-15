@@ -98,17 +98,24 @@ npm run cypress:open
 ```
 
 After that, cypress will open a window, where you can select the type of tests you're going to run. Select "End to End Testing".
+
 ![Testing step 1](docs/testingSteps/step-1.jpg)
 
+
 Then, select the browser you're going to run the tests on and click on the button `Start E2E Tests in <browser-of-choice>`.
+
 ![Testing step 2](docs/testingSteps/step-2.jpg)
 
+
 After that, a browser window will open, with a dashboard showing all the tests that are available to be checked. Click on `Specs` in the left menu and select the spec you want to run.
+
 ![Testing step 3](docs/testingSteps/step-3.jpg)
+
 
 Then you'll be redirected to a page with a split view. On the left, you'll have available the test specs and the test output (if failed or passed, for example). On the right you'll see the application running while the test run.
 
 To run another test, you just have to select another test spec on the list to your left.
+
 ![Testing step 4](docs/testingSteps/step-4.jpg)
 
 
