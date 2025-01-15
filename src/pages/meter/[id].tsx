@@ -17,21 +17,24 @@ export default function MeterData() {
   return (
     <PageLayout>
       <h1>Meter Data</h1>
-      <Button
-        type='button'
-        onClick={() => {
-          toggleDialog(dialogRef);
-        }}
-      >
-        Update meter data
-      </Button>
+
       <MeterIntervalForm dialogRef={dialogRef} />
       {meters && !meter ? (
         <span>
           Oops! We are currently unable to find the meter you requested.
         </span>
       ) : (
-        <SingleMeterChart meter={meter} />
+        <>
+          <Button
+            type='button'
+            onClick={() => {
+              toggleDialog(dialogRef);
+            }}
+          >
+            Add new meter interval
+          </Button>
+          <SingleMeterChart meter={meter} />
+        </>
       )}
     </PageLayout>
   );
