@@ -6,7 +6,7 @@ import { useMetersContext } from '@/context/useMetersContext';
 import Button from '@/components/Button';
 import MeterIntervalForm from '@/components/MeterIntervalForm';
 import PageLayout from '@/components/PageLayout';
-import SingleMeterChart from '@/components/Chart/SingleMeterChart';
+import Chart from '@/components/Chart/SingleMeter';
 
 export default function MeterData() {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function MeterData() {
           >
             Add new meter interval
           </Button>
-          <SingleMeterChart meter={meter} />
+          <Chart meter={meter} />
         </>
       )}
     </PageLayout>

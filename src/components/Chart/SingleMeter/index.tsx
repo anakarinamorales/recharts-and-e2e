@@ -22,13 +22,13 @@ export default function SingleMeterChart({ meter }: { meter: Meter | null }) {
     <>
       {meter?.name && <h2>{meter?.name}</h2>}
       <ResponsiveContainer width='100%'>
-        <BarChart data={sortedArray} barSize={20}>
+        <BarChart data={sortedArray}>
           <XAxis dataKey='date' />
           <YAxis />
           <Tooltip />
           <Legend />
-          <CartesianGrid strokeDasharray='3 3' />
-          <Bar dataKey='kwh' fill='#8884d8' background={{ fill: '#eee' }} />
+          <CartesianGrid strokeDasharray={3} />
+          <Bar dataKey='kwh' fill='#8884d8' />
         </BarChart>
       </ResponsiveContainer>
     </>

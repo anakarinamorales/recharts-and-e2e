@@ -1,4 +1,4 @@
-import SingleMeterChart from '@/components/Chart/SingleMeterChart';
+import Chart from '@/components/Chart/MultipleMeters';
 import PageLayout from '@/components/PageLayout';
 import { useMetersContext } from '@/context/useMetersContext';
 
@@ -9,10 +9,7 @@ export default function Home() {
     <PageLayout>
       <h1>Overview</h1>
       {!meters && !queryError && <div>Loading...</div>}
-      {!queryError &&
-        meters?.map((meter) => (
-          <SingleMeterChart key={meter.name + meter.id} meter={meter} />
-        ))}
+      {!queryError && <Chart />}
     </PageLayout>
   );
 }
