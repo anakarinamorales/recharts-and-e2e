@@ -1,42 +1,94 @@
 .menuContainer {
-  background: var(--color-light-black);
-  border-radius: 0 0 80px 80px;
-  height: 170px;
-  left: 0;
-  padding-bottom: 24px;
-  position: absolute;
-  width: 170px;
+  align-items: center;
+  background-color: var(--color-pure-white);
+  display: flex;
+  height: 0;
+  justify-content: center; 
+  position: fixed;
+  transition-delay: 0.5s;
+  transition: 0.5s;
+  width: 100%;
+  z-index: 10;
 }
+
+.burgerBtn {
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  color: transparent;
+  height: 48px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 48px;
+}
+
+.burgerBtn:before {
+  background-color: var(--color-pure-black);
+  border-radius: 5px;
+  box-shadow: 0px 7px 0px 0px var(--color-pure-black), 0px -7px 0px 0px var(--color-pure-black);
+  content: '';
+  display: block;
+  height: 4px;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transition: 0.5s;
+  width: 24px;
+}
+
+.burgerBtn:hover,
+.burgerBtn:focus {
+  cursor: pointer;
+  outline: 3px dashed var(--color-light-black);
+}
+
 .navigationList {
+  background-color: var(--color-pure-white);
+  color: var(--color-pure-black);
+  display: none;
+  height: 0;
   list-style: none;
   margin: 0;
-  padding-left: 28px;
+  overflow: hidden;
+  padding: 0;
   text-align: center;
+  visibility: hidden;
+  width: 100%;
 }
 
 .menuItem {
-  height: 45px;
-  padding-left: 24px;
-  width: 100%;
+  color: var(--color-pure-black);
+  transition-delay: 0s;
+  transition: 0.5s;
 }
 
 .menuItem > a {
-  align-items: center;
-  color: var(--color-medium-grey);
+  color: var(--color-pure-black);
   display: block;
-  display: flex;
+  font-weight: 700;
+  padding: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.menuItem > a:hover,
+.menuItem > a:focus {
+  outline: 3px dashed var(--color-light-black);
+}
+
+.menuContainer:has(.burgerBtn[aria-expanded="true"]),
+.burgerBtn[aria-expanded="true"] ~ .navigationList {
+  overflow: visible;
+  transition-delay: 0s;
+}
+
+.menuContainer:has(.burgerBtn[aria-expanded="true"]){
   height: 100%;
-  width: 100%;
 }
 
-.menuItem > a:hover {
-  color: var(--color-light-black);
-}
-
-.menuItem:hover {
-  background-color: var(--color-medium-grey);
-  background: var(--color-pure-white);
-  border-radius: 35px 0 0 35px;
-  color: var(--color-light-black);
-  cursor: pointer;
+.burgerBtn[aria-expanded="true"] ~ .navigationList {
+  display: initial;
+  height: auto;
+  visibility: visible;
 }

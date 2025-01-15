@@ -37,7 +37,7 @@ export function getChartData(meters: Meter[]): MultipleBatteriesChartProps {
   const parsedData = timestamps.map((t) => chartData[t]);
 
   return {
-    barsFillColors: ['#8884d8', '#ffc658'],
+    barsFillColors: ['var(--color-lilac)', 'var(--color-yellow)'],
     barsKeys: Array.from(chartColumns) as string[],
     data: parsedData,
   };

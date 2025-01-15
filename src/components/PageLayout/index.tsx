@@ -9,10 +9,10 @@ export default function PageLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <Menu />
-      <main className={styles.Container}>{children}</main>
-    </>
-  );
+    return (
+      <>
+        <Menu />
+        <main className={styles.container}>{children}</main>
+      </>
+    );
 }

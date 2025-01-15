@@ -4,6 +4,8 @@
   --color-medium-grey: #cccccc;
   --color-pure-black: #000000;
   --color-pure-white: #ffffff;
+  --color-lilac: #8884d8; 
+  --color-yellow: #ffc658;
 }
 
 html,
@@ -30,3 +32,12 @@ a {
   justify-content: center;
 }
 
+dialog {
+  padding: 8px;
+}
+
+@media (min-width: 600px) {
+  dialog {
+    padding: 16px;
+  }
+}

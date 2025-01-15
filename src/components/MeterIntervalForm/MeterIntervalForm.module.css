@@ -1,12 +1,13 @@
 .formContainer {
   display: grid;
-  grid-column-gap: 8px;
+  gap: 8px;
   grid-template-areas:
-    'title title title title'
-    'kwhLabel . datetimeLabel .'
-    'kwhInput . datetimeInput nowBtn'
-    '. . . submitBtn';
-  
+      'title title'
+      'kwhLabel .'
+      'kwhInput kwhInput'
+      'datetimeLabel .'
+      'datetimeInput nowBtn'
+      'submitBtn submitBtn';
 }
 
 .title {
@@ -19,10 +20,12 @@
 
 .kwhLabel {
   grid-area: kwhLabel;
+  text-align: left;
 }
 
 .datetimeLabel {
   grid-area: datetimeLabel;
+  text-align: left;
 }
 
 .datetimeInput {
@@ -38,4 +41,12 @@
   margin-top: 14px;
 }
 
-
+@media (min-width: 600px) {
+  .formContainer {
+    grid-template-areas:
+      'title title title title'
+      'kwhLabel . datetimeLabel .'
+      'kwhInput . datetimeInput nowBtn'
+      '. . . submitBtn';
+  }
+}
